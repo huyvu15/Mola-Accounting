@@ -1,0 +1,63 @@
+/* Figma Styles of your File */
+:root {
+    /* Colors */
+    /* Fonts */
+    --desktop-body-7-font-family: Inter-Bold, sans-serif;
+    --desktop-body-7-font-size: 12px;
+    --desktop-body-7-line-height: 140%;
+    --desktop-body-7-font-weight: 700;
+    --desktop-body-7-font-style: normal;
+    --desktop-body-6-font-family: Inter-SemiBold, sans-serif;
+    --desktop-body-6-font-size: 12px;
+    --desktop-body-6-line-height: 140%;
+    --desktop-body-6-font-weight: 600;
+    --desktop-body-6-font-style: normal;
+    --desktop-body-5-font-family: Inter-Medium, sans-serif;
+    --desktop-body-5-font-size: 12px;
+    --desktop-body-5-line-height: 140%;
+    --desktop-body-5-font-weight: 500;
+    --desktop-body-5-font-style: normal;
+    --desktop-body-4-font-family: Inter-Regular, sans-serif;
+    --desktop-body-4-font-size: 12px;
+    --desktop-body-4-line-height: 140%;
+    --desktop-body-4-font-weight: 400;
+    --desktop-body-4-font-style: normal;
+    --desktop-body-3-font-family: Inter-Regular, sans-serif;
+    --desktop-body-3-font-size: 15px;
+    --desktop-body-3-line-height: 130%;
+    --desktop-body-3-font-weight: 400;
+    --desktop-body-3-font-style: normal;
+    --desktop-body-2-font-family: Inter-Regular, sans-serif;
+    --desktop-body-2-font-size: 16px;
+    --desktop-body-2-line-height: 140%;
+    --desktop-body-2-font-weight: 400;
+    --desktop-body-2-font-style: normal;
+    --desktop-body-1-font-family: Inter-Regular, sans-serif;
+    --desktop-body-1-font-size: 17px;
+    --desktop-body-1-line-height: 140%;
+    --desktop-body-1-font-weight: 400;
+    --desktop-body-1-font-style: normal;
+    --desktop-body-font-family: Inter-Regular, sans-serif;
+    --desktop-body-font-size: 18px;
+    --desktop-body-line-height: 140%;
+    --desktop-body-font-weight: 400;
+    --desktop-body-font-style: normal;
+    --desktop-body-2-font-family: Inter-Regular, sans-serif;
+    --desktop-body-2-font-size: 14px;
+    --desktop-body-2-line-height: 130%;
+    --desktop-body-2-font-weight: 400;
+    --desktop-body-2-font-style: normal;
+    --desktop-body-1-font-family: Inter-SemiBold, sans-serif;
+    --desktop-body-1-font-size: 14px;
+    --desktop-body-1-line-height: 130%;
+    --desktop-body-1-font-weight: 600;
+    --desktop-body-1-font-style: normal;
+    --desktop-body-3-font-family: Inter-Medium, sans-serif;
+    --desktop-body-3-font-size: 14px;
+    --desktop-body-3-line-height: 130%;
+    --desktop-body-3-font-weight: 500;
+    --desktop-body-3-font-style: normal;
+  
+    /* Effects */
+  }
+  

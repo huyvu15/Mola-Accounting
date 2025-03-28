@@ -1,0 +1,53 @@
+{
+    "sidebar": {
+      "title": "Mua Hàng"
+    },
+    "transactions": [
+      {
+        "type": "Mua hàng",
+        "method": "Chuyển khoản",
+        "bankAccount": "123456789",
+        "accountingDate": "2025-03-27",
+        "documentDate": "2025-03-26",
+        "supplierCode": "NCC001",
+        "supplierName": "Công ty ABC",
+        "invoiceDate": "2025-03-25"
+      },
+      {
+        "type": "Nhập kho",
+        "method": "Tiền mặt",
+        "bankAccount": "",
+        "accountingDate": "2025-03-27",
+        "documentDate": "2025-03-26",
+        "supplierCode": "NCC002",
+        "supplierName": "Công ty XYZ",
+        "invoiceDate": "2025-03-25"
+      }
+    ],
+    "inventory": [
+      {
+        "itemCode": "MH001",
+        "itemName": "Máy in",
+        "property": "Hàng hóa",
+        "warehouseCode": "K01",
+        "warehouseName": "Kho chính",
+        "debitAccount": "156",
+        "creditAccount": "331",
+        "unit": "Cái",
+        "quantity": 5,
+        "unitPrice": 2000000
+      },
+      {
+        "itemCode": "MH002",
+        "itemName": "Giấy A4",
+        "property": "Vật tư",
+        "warehouseCode": "K02",
+        "warehouseName": "Kho phụ",
+        "debitAccount": "152",
+        "creditAccount": "331",
+        "unit": "Ram",
+        "quantity": 10,
+        "unitPrice": 50000
+      }
+    ]
+  }
