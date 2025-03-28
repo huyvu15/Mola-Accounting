@@ -150,7 +150,7 @@ const AccountingSoftware = () => {
       {inventoryTable}
 
       {/* Search Input */}
-      <div className="rectangle-10"></div>
+      {/* <div className="rectangle-10"></div> */}
       <input
         type="text"
         className="box-find"

@@ -594,16 +594,16 @@ button {
   object-fit: cover;
 }
 .xo {
-  color: #000000;
-  text-align: left;
-  font-family: var(--desktop-body-3-font-family, "Inter-Medium", sans-serif);
+  /* color: #000000; */
+  /* text-align: left; */
+  /* font-family: var(--desktop-body-3-font-family, "Inter-Medium", sans-serif);
   font-size: var(--desktop-body-3-font-size, 14px);
   line-height: var(--desktop-body-3-line-height, 130%);
   font-weight: var(--desktop-body-3-font-weight, 500);
   opacity: 0.8;
-  position: relative;
-  width: 80px;
-  height: 30px;
+  position: relative; */
+  /* width: 80px; */
+  /* height: 30px; */
 }
 .frame-1126 {
   background: #ffffff;
