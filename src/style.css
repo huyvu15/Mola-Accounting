@@ -26,7 +26,7 @@ button {
   box-sizing: border-box;
 }
 .m-n-2 {
-  background: #D2E6D6; /* Màu nền chính */
+  background: #E6F0E8; /* Màu nền chính */
   height: 1024px;
   position: relative;
   display: flex; /* Sử dụng flex để bố trí sidebar và nội dung */
@@ -740,11 +740,11 @@ button {
   top: 217px;
 }
 .frame-427319525 {
-  width: 151.11px;
-  height: 20.93px;
+  width: 180px;
+  height: 30px;
   position: absolute;
   left: 367.46px;
-  top: 220.19px;
+  top: 220.19px;  
   overflow: hidden;
 }
 .chi-nh-nh {
@@ -796,7 +796,7 @@ button {
 }
 
 .tongquan {
-  color: #f5f5f5; /* Đổi màu chữ thành đen để nổi trên nền trắng */
+  color: #D2E6D6; /* Đổi màu chữ thành đen để nổi trên nền trắng */
   font-family: "Inter-Medium", sans-serif;
   font-size: 14px; /* Giảm kích thước chữ để vừa hộp */
   font-weight: 500;
