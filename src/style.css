@@ -659,8 +659,10 @@ button {
   position: relative;
   align-self: stretch;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: flex-start; /* Căn trái theo chiều ngang */
+  padding-left: 10px;
 }
 .table-cell14 {
   background: #ffffff;
