@@ -20,110 +20,118 @@ const InvoiceSync = () => {
       </div>
       
       <div className="form-container">
-        <div className="form-group">
+        <div className="form-row">
           <label className="form-label">Tên đăng nhập</label>
-          <input
-            type="text"
-            className="form-input"
-            placeholder="MST Doanh Nghiệp"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          <div className="input-container">
+            <input
+              type="text"
+              className="form-input"
+              placeholder="MST Doanh Nghiệp"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
         </div>
         
-        <div className="form-group">
+        <div className="form-row">
           <label className="form-label">Ngày lập hoá đơn</label>
-          <div className="date-container">
-            <div className="date-group">
-              <select 
-                className="date-select"
-                value={startDay}
-                onChange={(e) => setStartDay(e.target.value)}
-              >
-                <option value="01">01</option>
-                {/* Add more day options */}
-              </select>
-              <select 
-                className="date-select"
-                value={startMonth}
-                onChange={(e) => setStartMonth(e.target.value)}
-              >
-                <option value="01">01</option>
-                {/* Add more month options */}
-              </select>
-              <select 
-                className="date-select wide-select"
-                value={startYear}
-                onChange={(e) => setStartYear(e.target.value)}
-              >
-                <option value="2025">2025</option>
-                {/* Add more year options */}
-              </select>
-            </div>
-            
-            <div className="arrow-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#4A90E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            
-            <div className="date-group">
-              <select 
-                className="date-select"
-                value={endDay}
-                onChange={(e) => setEndDay(e.target.value)}
-              >
-                <option value="01">01</option>
-                {/* Add more day options */}
-              </select>
-              <select 
-                className="date-select"
-                value={endMonth}
-                onChange={(e) => setEndMonth(e.target.value)}
-              >
-                <option value="01">01</option>
-                {/* Add more month options */}
-              </select>
-              <select 
-                className="date-select wide-select"
-                value={endYear}
-                onChange={(e) => setEndYear(e.target.value)}
-              >
-                <option value="2025">2025</option>
-                {/* Add more year options */}
-              </select>
+          <div className="date-wrapper">
+            <div className="date-container">
+              <div className="date-group">
+                <select 
+                  className="date-select"
+                  value={startDay}
+                  onChange={(e) => setStartDay(e.target.value)}
+                >
+                  <option value="01">01</option>
+                  {/* Add more day options */}
+                </select>
+                <select 
+                  className="date-select"
+                  value={startMonth}
+                  onChange={(e) => setStartMonth(e.target.value)}
+                >
+                  <option value="01">01</option>
+                  {/* Add more month options */}
+                </select>
+                <select 
+                  className="date-select wide-select"
+                  value={startYear}
+                  onChange={(e) => setStartYear(e.target.value)}
+                >
+                  <option value="2025">2025</option>
+                  {/* Add more year options */}
+                </select>
+              </div>
+              
+              <div className="arrow-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#4A90E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              
+              <div className="date-group">
+                <select 
+                  className="date-select"
+                  value={endDay}
+                  onChange={(e) => setEndDay(e.target.value)}
+                >
+                  <option value="01">01</option>
+                  {/* Add more day options */}
+                </select>
+                <select 
+                  className="date-select"
+                  value={endMonth}
+                  onChange={(e) => setEndMonth(e.target.value)}
+                >
+                  <option value="01">01</option>
+                  {/* Add more month options */}
+                </select>
+                <select 
+                  className="date-select wide-select"
+                  value={endYear}
+                  onChange={(e) => setEndYear(e.target.value)}
+                >
+                  <option value="2025">2025</option>
+                  {/* Add more year options */}
+                </select>
+              </div>
             </div>
           </div>
         </div>
         
-        <div className="form-group">
+        <div className="form-row">
           <label className="form-label">Loại hoá đơn</label>
-          <select 
-            className="form-select"
-            value={invoiceType}
-            onChange={(e) => setInvoiceType(e.target.value)}
-          >
-            <option value="Hoá đơn mua vào">Hoá đơn mua vào</option>
-            {/* Add more invoice type options */}
-          </select>
-        </div>
-        
-        <div className="form-group">
-          <label className="form-label">Hoá đơn</label>
-          <div className="invoice-select-container">
+          <div className="input-container">
             <select 
               className="form-select"
-              value={invoiceFormat}
-              onChange={(e) => setInvoiceFormat(e.target.value)}
+              value={invoiceType}
+              onChange={(e) => setInvoiceType(e.target.value)}
             >
-              <option value="Hoá đơn điện tử">Hoá đơn điện tử</option>
-              {/* Add more invoice format options */}
+              <option value="Hoá đơn mua vào">Hoá đơn mua vào</option>
+              {/* Add more invoice type options */}
             </select>
-            <button className="search-button">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
+          </div>
+        </div>
+        
+        <div className="form-row">
+          <label className="form-label">Hoá đơn</label>
+          <div className="input-container">
+            <div className="invoice-select-container">
+              <select 
+                className="form-select"
+                value={invoiceFormat}
+                onChange={(e) => setInvoiceFormat(e.target.value)}
+              >
+                <option value="Hoá đơn điện tử">Hoá đơn điện tử</option>
+                {/* Add more invoice format options */}
+              </select>
+              <button className="search-button">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
