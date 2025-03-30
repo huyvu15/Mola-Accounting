@@ -1,0 +1,241 @@
+/* LoginForm.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-modal {
+  width: 720px;
+  height: 450px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #227447;
+  padding: 12px 20px;
+  color: white;
+  height: 48px;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-body {
+  flex: 1;
+  padding: 24px;
+  background-color: #f5f9f6;
+  overflow-y: auto;
+}
+
+.login-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-columns {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+}
+
+.form-left-column, 
+.form-right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  height: 44px;
+}
+
+.form-input:focus {
+  border-color: #99C8A0;
+}
+
+.form-input::placeholder {
+  color: #a0a0a0;
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.captcha-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 44px;
+}
+
+.captcha-placeholder {
+  flex-grow: 1;
+  height: 100%;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+}
+
+.refresh-captcha {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 20px;
+  width: 20px;
+}
+
+.form-footer {
+  margin-top: 16px;
+}
+
+.checkbox-group {
+  margin-bottom: 12px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 18px;
+  width: 18px;
+  min-width: 18px;
+  background-color: white;
+  border: 1px solid #227447;
+  border-radius: 3px;
+  margin-top: 2px;
+  position: relative;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #227447;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.4;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 16px 0;
+}
+
+.login-button {
+  width: 30%;
+  padding: 12px;
+  background-color: #227447;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 44px;
+  display: block; /* Chuyển thành block để dùng margin auto */
+  margin: 0 auto; /* Căn giữa theo chiều ngang */
+  text-align: center;
+  margin: -30px auto 0;
+}
+
+.login-button:hover {
+  background-color: #1b5c38;
+}

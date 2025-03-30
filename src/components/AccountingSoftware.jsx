@@ -12,9 +12,9 @@ import {
   Building,
   ShoppingCart
 } from 'lucide-react';
-import './vars.css';
-import './style.css';
-import data from './data.json';
+// import './vars.css';
+import '../css/style.css';
+import data from '../data.json';
 
 // Constants
 const COMPANIES = [
