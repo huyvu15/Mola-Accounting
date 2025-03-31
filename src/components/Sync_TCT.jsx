@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../css/Sync_TCT.css';
+import Get_invoice from './get_invoice';
+import LoginForm from './login_HDDT';
 
 const InvoiceSync = () => {
   const [username, setUsername] = useState('');
@@ -11,6 +13,24 @@ const InvoiceSync = () => {
   const [endYear, setEndYear] = useState('2025');
   const [invoiceType, setInvoiceType] = useState('Hoá đơn mua vào');
   const [invoiceFormat, setInvoiceFormat] = useState('Hoá đơn điện tử');
+  const [navigateTo, setNavigateTo] = useState(null);
+
+  const handleSync = () => {
+    // Logic for syncing here
+    setNavigateTo('get_invoice');
+  };
+
+  const handleSwitchAccount = () => {
+    setNavigateTo('login');
+  };
+
+  if (navigateTo === 'get_invoice') {
+    return <Get_invoice />;
+  }
+
+  if (navigateTo === 'login') {
+    return <LoginForm />;
+  }
 
   return (
     <div className="invoice-sync-container">
@@ -139,8 +159,8 @@ const InvoiceSync = () => {
       <div className="divider"></div>
       
       <div className="footer">
-        <button className="sync-button">Đồng bộ</button>
-        <button className="switch-account-button">
+        <button className="sync-button" onClick={handleSync}>Đồng bộ</button>
+        <button className="switch-account-button" onClick={handleSwitchAccount}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 8C9.76731 8 11.2 6.56731 11.2 4.8C11.2 3.03269 9.76731 1.6 8 1.6C6.23269 1.6 4.8 3.03269 4.8 4.8C4.8 6.56731 6.23269 8 8 8Z" fill="#7F7F7F"/>
             <path d="M2.4 14.4C2.4 11.7491 4.9072 9.6 8 9.6C11.0928 9.6 13.6 11.7491 13.6 14.4" stroke="#7F7F7F" strokeWidth="1.6"/>

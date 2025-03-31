@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
 import '../css/LoginForm.css';
+import InvoiceSync from './Sync_TCT';
 
-const LoginForm = () => {
+const LoginForm = ({ onClose }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [captcha, setCaptcha] = useState('');
   const [isChecked, setIsChecked] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
     console.log({ username, password, captcha, isChecked });
+    // Set logged in state to true to trigger navigation
+    setIsLoggedIn(true);
   };
+
+  // If logged in, show the InvoiceSync component
+  if (isLoggedIn) {
+    return <InvoiceSync />;
+  }
 
   return (
     <div className="login-modal">
       <div className="login-header">
         <div className="header-title">Đăng Nhập HĐĐT</div>
-        <button className="close-button">×</button>
+        <button className="close-button" onClick={onClose}>×</button>
       </div>
       
       <div className="login-body">

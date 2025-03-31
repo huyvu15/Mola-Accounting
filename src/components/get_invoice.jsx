@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/get_invoice.css';
+import LoginForm from './login_HDDT';
 
 const Get_invoice = () => {
+  const [showLoginForm, setShowLoginForm] = useState(false);
+
+  const handleSyncButtonClick = () => {
+    setShowLoginForm(true);
+  };
+
+  const handleCloseLoginForm = () => {
+    setShowLoginForm(false);
+  };
+
   return (
     <div className="container">
       {/* Header navigation */}
@@ -50,7 +61,7 @@ const Get_invoice = () => {
             <span className="add-icon">+</span> Thêm File
           </button>
           
-          <button className="btn-sync">
+          <button className="btn-sync" onClick={handleSyncButtonClick}>
             <span className="sync-icon">🔄</span> Đồng bộ dữ liệu HĐĐT từ TCT
           </button>
           
@@ -130,6 +141,39 @@ const Get_invoice = () => {
           </button>
         </div>
       </div>
+
+      {/* Login form overlay */}
+      {showLoginForm && (
+        <div className="login-overlay">
+          <LoginForm onClose={handleCloseLoginForm} />
+        </div>
+      )}
+
+      {/* CSS style for overlay */}
+      <style jsx>{`
+        .login-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        }
+        
+        .close-login-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      `}</style>
     </div>
   );
 };
