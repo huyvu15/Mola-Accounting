@@ -1,9 +1,9 @@
 import React from "react";
-import "../css/InvoiceLoader.css";
+import "../css/man2.css";
 
-export const InvoiceLoader = () => {
+export const Mn = () => {
   return (
-    <div className="invoice-loader">
+    <div className="mn">
       {/* Header with breadcrumb navigation */}
       <div className="header">
         <div className="breadcrumb">
@@ -37,24 +37,24 @@ export const InvoiceLoader = () => {
       <div className="main-content">
         {/* Filter and actions row */}
         <div className="filter-actions-row">
-          <div className="branch-selector-container">
-            <div className="branch-label">
+          <div className="filter-group">
+            <div className="branch-selector">
               <span className="branch-icon"></span>
               <span className="label">Chi nhánh</span>
-            </div>
-            <div className="company-select">
-              <span className="company-name">CÔNG TY TNHH DU LỊCH</span>
-              <span className="dropdown-icon"></span>
+              <div className="select-box">
+                <span className="company-name">CÔNG TY TNHH DU LỊCH</span>
+                <span className="dropdown-icon"></span>
+              </div>
             </div>
           </div>
 
           <div className="button-group">
-            <button className="file-button">
-              <span className="file-icon"></span>
+            <button className="file-button choose-file">
+              <span className="button-icon"></span>
               <span>Chọn File</span>
             </button>
-            <button className="file-button">
-              <span className="add-icon"></span>
+            <button className="file-button add-file">
+              <span className="button-icon"></span>
               <span>Thêm File</span>
             </button>
             <button className="sync-button">
@@ -63,31 +63,31 @@ export const InvoiceLoader = () => {
             </button>
           </div>
 
-          <div className="invoice-type-container">
-            <div className="invoice-type-label">Phân loại HĐ không xác định</div>
-            <div className="invoice-type-select">
+          <div className="hd-selector">
+            <span className="label">Phân loại HĐ không xác định</span>
+            <div className="select-box">
               <span className="dropdown-icon"></span>
             </div>
           </div>
         </div>
 
         {/* Data table */}
-        <div className="invoice-table-container">
-          <table className="invoice-table">
+        <div className="data-table-container">
+          <table className="data-table">
             <thead>
               <tr>
                 <th className="checkbox-column">
                   <input type="checkbox" />
                 </th>
-                <th className="index-column"></th>
-                <th className="date-column">Ngày lập hoá đơn</th>
-                <th className="model-column">Mẫu số hoá đơn</th>
-                <th className="symbol-column">Ký hiệu hoá đơn</th>
-                <th className="number-column">Số hoá đơn</th>
-                <th className="tax-column">MST người bán</th>
-                <th className="seller-column">Tên người bán</th>
-                <th className="sku-column">Mã vật tư</th>
-                <th className="product-column">Tên hàng hoá, dịch vụ</th>
+                <th className="sort-column"></th>
+                <th>Ngày lập hoá đơn</th>
+                <th>Mẫu số hoá đơn</th>
+                <th>Ký hiệu hoá đơn</th>
+                <th>Số hoá đơn</th>
+                <th>MST người bán</th>
+                <th>Tên người bán</th>
+                <th>Mã vật tư</th>
+                <th>Tên hàng hoá, dịch vụ</th>
               </tr>
             </thead>
             <tbody>
@@ -95,15 +95,15 @@ export const InvoiceLoader = () => {
                 <td className="checkbox-column">
                   <input type="checkbox" />
                 </td>
-                <td className="index-cell">1</td>
-                <td className="empty-cell"></td>
-                <td className="empty-cell"></td>
-                <td className="empty-cell"></td>
-                <td className="empty-cell"></td>
-                <td className="empty-cell"></td>
-                <td className="empty-cell"></td>
-                <td className="empty-cell"></td>
-                <td className="empty-cell"></td>
+                <td className="row-number">1</td>
+                <td className="code-cell"></td>
+                <td className="code-cell"></td>
+                <td className="code-cell"></td>
+                <td className="code-cell"></td>
+                <td className="code-cell"></td>
+                <td className="code-cell"></td>
+                <td className="code-cell"></td>
+                <td className="code-cell"></td>
               </tr>
             </tbody>
           </table>

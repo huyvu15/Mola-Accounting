@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useRef } from 'react';
 import '../css/get_invoice.css';
 import LoginForm from './login_HDDT';
@@ -37,6 +38,12 @@ const Get_invoice = () => {
     }
   };
 
+=======
+import React from 'react';
+import '../css/get_invoice.css';
+
+const Get_invoice = () => {
+>>>>>>> parent of 122171c (add)
   return (
     <div className="container">
       {/* Header navigation */}
@@ -92,7 +99,7 @@ const Get_invoice = () => {
             multiple
           />
           
-          <button className="btn-sync" onClick={handleSyncButtonClick}>
+          <button className="btn-sync">
             <span className="sync-icon">🔄</span> Đồng bộ dữ liệu HĐĐT từ TCT
           </button>
           
@@ -172,6 +179,7 @@ const Get_invoice = () => {
           </button>
         </div>
       </div>
+<<<<<<< HEAD
 
       {/* Login form overlay */}
       {showLoginForm && (
@@ -211,6 +219,8 @@ const Get_invoice = () => {
           cursor: pointer;
         }
       `}</style>
+=======
+>>>>>>> parent of 122171c (add)
     </div>
   );
 };
