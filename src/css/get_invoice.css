@@ -178,30 +178,31 @@ body {
 
 /* Table styles */
 .table-container {
-  flex: 1;
-  overflow: auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+  margin: 20px;
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
 }
 
 .data-table {
   width: 100%;
+  min-width: 1200px;
   border-collapse: collapse;
-  background-color: white;
-  border: 1px solid #ccc;
 }
 
-.data-table th, .data-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-size: 12px;
+.data-table th,
+.data-table td {
+  padding: 12px;
   text-align: left;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .data-table th {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
   font-weight: 500;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .filter-row th {
@@ -274,4 +275,23 @@ body {
   gap: 5px;
   font-size: 12px;
   font-weight: 500;
+}
+
+/* Tùy chỉnh thanh cuộn */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

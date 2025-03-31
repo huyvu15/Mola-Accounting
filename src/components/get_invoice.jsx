@@ -1,16 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../css/get_invoice.css';
 import LoginForm from './login_HDDT';
+import InvoiceSync from './Sync_TCT';
 
 const Get_invoice = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showSyncForm, setShowSyncForm] = useState(false);
+  const fileInputRef = useRef(null);
 
   const handleSyncButtonClick = () => {
     setShowLoginForm(true);
   };
 
+  const handleLoginSuccess = () => {
+    setShowLoginForm(false);
+    setShowSyncForm(true);
+  };
+
   const handleCloseLoginForm = () => {
     setShowLoginForm(false);
+  };
+
+  const handleCloseSyncForm = () => {
+    setShowSyncForm(false);
+  };
+
+  const handleAddFile = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      // Handle the selected files here
+      console.log('Selected files:', files);
+    }
   };
 
   return (
@@ -57,9 +81,16 @@ const Get_invoice = () => {
             <span className="file-icon">📄</span> Chọn File
           </button>
           
-          <button className="btn-add-file">
+          <button className="btn-add-file" onClick={handleAddFile}>
             <span className="add-icon">+</span> Thêm File
           </button>
+          <input 
+            type="file" 
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            style={{ display: 'none' }}
+            multiple
+          />
           
           <button className="btn-sync" onClick={handleSyncButtonClick}>
             <span className="sync-icon">🔄</span> Đồng bộ dữ liệu HĐĐT từ TCT
@@ -144,9 +175,15 @@ const Get_invoice = () => {
 
       {/* Login form overlay */}
       {showLoginForm && (
-        <div className="login-overlay">
-          <LoginForm onClose={handleCloseLoginForm} />
-        </div>
+        <LoginForm 
+          onLoginSuccess={handleLoginSuccess} 
+          onClose={handleCloseLoginForm}
+        />
+      )}
+
+      {/* Sync form overlay */}
+      {showSyncForm && (
+        <InvoiceSync onClose={handleCloseSyncForm} />
       )}
 
       {/* CSS style for overlay */}
