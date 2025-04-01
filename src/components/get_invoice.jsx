@@ -1,49 +1,18 @@
-<<<<<<< HEAD
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import '../css/get_invoice.css';
 import LoginForm from './login_HDDT';
-import InvoiceSync from './Sync_TCT';
 
 const Get_invoice = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
-  const [showSyncForm, setShowSyncForm] = useState(false);
-  const fileInputRef = useRef(null);
 
   const handleSyncButtonClick = () => {
     setShowLoginForm(true);
-  };
-
-  const handleLoginSuccess = () => {
-    setShowLoginForm(false);
-    setShowSyncForm(true);
   };
 
   const handleCloseLoginForm = () => {
     setShowLoginForm(false);
   };
 
-  const handleCloseSyncForm = () => {
-    setShowSyncForm(false);
-  };
-
-  const handleAddFile = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleFileChange = (event) => {
-    const files = event.target.files;
-    if (files.length > 0) {
-      // Handle the selected files here
-      console.log('Selected files:', files);
-    }
-  };
-
-=======
-import React from 'react';
-import '../css/get_invoice.css';
-
-const Get_invoice = () => {
->>>>>>> parent of 122171c (add)
   return (
     <div className="container">
       {/* Header navigation */}
@@ -179,19 +148,12 @@ const Get_invoice = () => {
           </button>
         </div>
       </div>
-<<<<<<< HEAD
 
       {/* Login form overlay */}
       {showLoginForm && (
-        <LoginForm 
-          onLoginSuccess={handleLoginSuccess} 
-          onClose={handleCloseLoginForm}
-        />
-      )}
-
-      {/* Sync form overlay */}
-      {showSyncForm && (
-        <InvoiceSync onClose={handleCloseSyncForm} />
+        <div className="login-overlay">
+          <LoginForm onClose={handleCloseLoginForm} />
+        </div>
       )}
 
       {/* CSS style for overlay */}
@@ -219,8 +181,6 @@ const Get_invoice = () => {
           cursor: pointer;
         }
       `}</style>
-=======
->>>>>>> parent of 122171c (add)
     </div>
   );
 };

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import '../css/LoginForm.css';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const LoginForm = ({ onLoginSuccess, onClose }) => {
+=======
+const LoginForm = () => {
+>>>>>>> parent of 122171c (add)
 =======
 const LoginForm = () => {
 >>>>>>> parent of 122171c (add)
@@ -14,6 +18,7 @@ const LoginForm = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (isChecked && username && password && captcha) {
       onLoginSuccess();
@@ -41,11 +46,23 @@ const LoginForm = () => {
                   required
                 />
               </div>
+            </div>
+            
+            <div className="form-row">
+              <label>Mật khẩu</label>
+              <div className="input-container">
+                <input 
+                  type={showPassword ? "text" : "password"}       
+    // Handle login logic here
+    console.log({ username, password, captcha, isChecked });
+  };
+
 =======
     // Handle login logic here
     console.log({ username, password, captcha, isChecked });
   };
 
+>>>>>>> parent of 122171c (add)
   return (
     <div className="login-modal">
       <div className="login-header">
