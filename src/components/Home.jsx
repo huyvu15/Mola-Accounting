@@ -12,8 +12,7 @@ import {
   Building,
   ShoppingCart
 } from 'lucide-react';
-// import './vars.css';
-import '../css/style.css';
+import '../css/home.css';
 import data from '../data.json';
 
 // Constants
@@ -41,7 +40,7 @@ const INVENTORY_HEADERS = [
   'TK Nợ', 'TK có', 'Đơn vị tính', 'Số liệu', 'Đơn giá'
 ];
 
-const AccountingSoftware = () => {
+const Homes = () => {
   const { sidebar, transactions, inventory } = data;
   const [activeTab, setActiveTab] = useState(0);
   const [searchInput, setSearchInput] = useState('');
@@ -65,69 +64,72 @@ const AccountingSoftware = () => {
     console.log('Công ty được chọn:', company);
   }, []);
 
-  // Memoized rendering of tables to optimize performance
   const transactionTable = useMemo(() => (
-    <div className="frame-t-1">
-      <div className="t-12">
-        {TRANSACTION_HEADERS.map((item, index) => (
-          <div key={index} className={item.className || 'table-cell3'}>
-            <item.icon className={`frame-2${index}`} />
-            <div className={item.text === '' ? 'content2' : 'content3'}>
-              <div className={item.text === '' ? 'tick' : 'text3'}>{item.text}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {transactions.map((transaction, rowIndex) => (
-        <div key={rowIndex} className={`t-${13 + rowIndex}`}>
-          {['', transaction.type, transaction.method, transaction.bankAccount, 
-            transaction.accountingDate, transaction.documentDate, 
-            transaction.supplierCode, transaction.supplierName, 
-            transaction.invoiceDate].map((cellData, cellIndex) => (
-            <div 
-              key={cellIndex} 
-              className={cellIndex === 0 ? 'table-cell5' : 'table-cell6'}
-            >
-              <div className="content3">
-                <div className="text4">{cellData}</div>
+    <div className="table-scroll-container" style={{ width: '100%', overflowX: 'auto' }}>
+      <div className="frame-t-1" style={{ minWidth: '1200px' }}> {/* Adjusted minimum width to ensure horizontal scrolling */}
+        <div className="t-12">
+          {TRANSACTION_HEADERS.map((item, index) => (
+            <div key={index} className={item.className || 'table-cell3'}>
+              <item.icon className={`frame-2${index}`} />
+              <div className={item.text === '' ? 'content2' : 'content3'}>
+                <div className={item.text === '' ? 'tick' : 'text3'}>{item.text}</div>
               </div>
             </div>
           ))}
         </div>
-      ))}
+        {transactions.map((transaction, rowIndex) => (
+          <div key={rowIndex} className={`t-${13 + rowIndex}`}>
+            {['', transaction.type, transaction.method, transaction.bankAccount, 
+              transaction.accountingDate, transaction.documentDate, 
+              transaction.supplierCode, transaction.supplierName, 
+              transaction.invoiceDate].map((cellData, cellIndex) => (
+              <div 
+                key={cellIndex} 
+                className={cellIndex === 0 ? 'table-cell5' : 'table-cell6'}
+              >
+                <div className="content3">
+                  <div className="text3">{cellData}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   ), [transactions]);
 
   const inventoryTable = useMemo(() => (
-    <div className="frame-t-2">
-      <div className="t-19">
-        {INVENTORY_HEADERS.map((text, index) => (
-          <div 
-            key={index} 
-            className={index < 3 || index > 6 ? 'table-cell4' : 'table-cell3'}
-          >
-            <div className={index === 0 ? 'content4' : 'content3'}>
-              <div className="text2">{text}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {inventory.map((item, rowIndex) => (
-        <div key={rowIndex} className={`t-${13 + rowIndex}`}>
-          {[
-            item.itemCode, item.itemName, item.property, 
-            item.warehouseCode, item.warehouseName, 
-            item.debitAccount, item.creditAccount, 
-            item.unit, item.quantity, item.unitPrice
-          ].map((cellData, cellIndex) => (
-            <div key={cellIndex} className="table-cell6">
-              <div className="content3">
-                <div className="text4">{cellData}</div>
+    <div className="table-scroll-container" style={{ width: '100%', overflowX: 'auto' }}>
+      <div className="frame-t-2" style={{ minWidth: '1200px' }}> {/* Adjusted minimum width to ensure horizontal scrolling */}
+        <div className="t-19">
+          {INVENTORY_HEADERS.map((text, index) => (
+            <div 
+              key={index} 
+              className={index < 3 || index > 6 ? 'table-cell4' : 'table-cell3'}
+            >
+              <div className={index === 0 ? 'content4' : 'content3'}>
+                <div className="text3">{text}</div>
               </div>
             </div>
           ))}
         </div>
-      ))}
+        {inventory.map((item, rowIndex) => (
+          <div key={rowIndex} className={`t-${13 + rowIndex}`}>
+            {[
+              item.itemCode, item.itemName, item.property, 
+              item.warehouseCode, item.warehouseName, 
+              item.debitAccount, item.creditAccount, 
+              item.unit, item.quantity, item.unitPrice
+            ].map((cellData, cellIndex) => (
+              <div key={cellIndex} className="table-cell6">
+                <div className="content3">
+                  <div className="text3">{cellData}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   ), [inventory]);
 
@@ -143,14 +145,13 @@ const AccountingSoftware = () => {
         </div>
       </div>
 
-      {/* Transaction Table */}
+      {/* Transaction Table - Now with Horizontal Scrolling Only */}
       {transactionTable}
 
-      {/* Inventory Table */}
+      {/* Inventory Table - Now with Horizontal Scrolling Only */}
       {inventoryTable}
 
       {/* Search Input */}
-      {/* <div className="rectangle-10"></div> */}
       <input
         type="text"
         className="box-find"
@@ -186,9 +187,8 @@ const AccountingSoftware = () => {
           onClick={() => handleButtonClick('Bán Hàng')}
         >
           <div className="content5">
-            <div className="text6">Bán Hàng</div>
+            <div className="text5">Bán Hàng</div>
           </div>
-          <div className="line-6"></div>
         </button>
 
         {transactions.map((transaction, index) => (
@@ -199,7 +199,7 @@ const AccountingSoftware = () => {
           >
             <div className="content6">
               <FileText className="page-perspective-matte" />
-              <div className="text8">{`Xử lý chứng từ - ${transaction.supplierCode}`}</div>
+              <div className="text7">{`Xử lý chứng từ - ${transaction.supplierCode}`}</div>
             </div>
           </div>
         ))}
@@ -208,9 +208,9 @@ const AccountingSoftware = () => {
       {/* Control Buttons */}
       <div className="controls">
         {[
-          { text: 'Thay đổi dữ liệu mặc định', action: 'Thay đổi dữ liệu mặc định', className: 'frame-427319524' },
-          { text: 'Lấy hoá đơn', action: 'Lấy hoá đơn', className: 'frame-4273195242' },
-          { text: 'Xử lý dữ liệu', action: 'Xử lý dữ liệu', className: 'frame-4273195243' },
+          { text: 'Thay đổi dữ liệu mặc định', action: 'Thay đổi dữ liệu mặc định', className: 'change-data' },
+          { text: 'Lấy hoá đơn', action: 'Lấy hoá đơn', className: 'get-bill' },
+          { text: 'Xử lý dữ liệu', action: 'Xử lý dữ liệu', className: 'process-data' },
         ].map((btn, index) => (
           <button 
             key={index}
@@ -248,7 +248,6 @@ const AccountingSoftware = () => {
         </div>
       </button>
 
-      {/* Company Info - Droplist */}
       <div className="bg"></div>
       <div className="frame-427319525">
         <select
@@ -291,4 +290,4 @@ const AccountingSoftware = () => {
   );
 };
 
-export default AccountingSoftware;
+export default Homes;

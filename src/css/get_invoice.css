@@ -178,27 +178,37 @@ body {
 
 /* Table styles */
 .table-container {
-  margin: 20px;
+  flex: 1;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-scroll {
   overflow-x: auto;
+  flex: 1;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
 }
 
 .data-table {
   width: 100%;
-  min-width: 1200px;
+  min-width: 1500px;
   border-collapse: collapse;
+  background-color: white;
 }
 
-.data-table th,
-.data-table td {
-  padding: 12px;
+.data-table th, .data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 12px;
   text-align: left;
-  border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap;
 }
 
 .data-table th {
-  background-color: #f5f5f5;
+  background-color: #f2f2f2;
   font-weight: 500;
   position: sticky;
   top: 0;
@@ -278,20 +288,20 @@ body {
 }
 
 /* Tùy chỉnh thanh cuộn */
-.table-container::-webkit-scrollbar {
+.table-scroll::-webkit-scrollbar {
   height: 8px;
 }
 
-.table-container::-webkit-scrollbar-track {
+.table-scroll::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 4px;
 }
 
-.table-container::-webkit-scrollbar-thumb {
+.table-scroll::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 4px;
 }
 
-.table-container::-webkit-scrollbar-thumb:hover {
+.table-scroll::-webkit-scrollbar-thumb:hover {
   background: #555;
 }

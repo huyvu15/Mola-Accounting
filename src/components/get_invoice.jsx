@@ -1,16 +1,40 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import '../css/get_invoice.css';
 import LoginForm from './login_HDDT';
+import InvoiceSync from './Sync_TCT';
 
 const Get_invoice = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showSyncForm, setShowSyncForm] = useState(false);
+  const fileInputRef = useRef(null);
 
   const handleSyncButtonClick = () => {
     setShowLoginForm(true);
   };
 
+  const handleLoginSuccess = () => {
+    setShowLoginForm(false);
+    setShowSyncForm(true);
+  };
+
   const handleCloseLoginForm = () => {
     setShowLoginForm(false);
+  };
+
+  const handleCloseSyncForm = () => {
+    setShowSyncForm(false);
+  };
+
+  const handleAddFile = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      // Handle the selected files here
+      console.log('Selected files:', files);
+    }
   };
 
   return (
@@ -68,7 +92,7 @@ const Get_invoice = () => {
             multiple
           />
           
-          <button className="btn-sync">
+          <button className="btn-sync" onClick={handleSyncButtonClick}>
             <span className="sync-icon">🔄</span> Đồng bộ dữ liệu HĐĐT từ TCT
           </button>
           
@@ -82,105 +106,96 @@ const Get_invoice = () => {
 
         {/* Table section */}
         <div className="table-container">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th className="checkbox-column">
-                  <input type="checkbox" />
-                </th>
-                <th>Ngày lập hoá đơn</th>
-                <th>Mẫu số hoá đơn</th>
-                <th>Ký hiệu hoá đơn</th>
-                <th>Số hoá đơn</th>
-                <th>MST người bán</th>
-                <th>Tên người bán</th>
-                <th>Mã vật tư</th>
-                <th>Tên hàng hoá</th>
-              </tr>
-              <tr className="filter-row">
-                <th className="sort-column">⇅</th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-                <th><div className="filter-cell">&lt;/&gt;</div></th>
-              </tr>
-            </thead>
-            <tbody>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((rowNum) => (
-                <tr key={rowNum}>
-                  <td className="row-number">
+          <div className="table-scroll">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th className="checkbox-column">
                     <input type="checkbox" />
-                    <span className="number">{rowNum}</span>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  </th>
+                  <th>Ngày lập hoá đơn</th>
+                  <th>Mẫu số hoá đơn</th>
+                  <th>Ký hiệu hoá đơn</th>
+                  <th>Số hoá đơn</th>
+                  <th>MST người bán</th>
+                  <th>Tên người bán</th>
+                  <th>Mã vật tư</th>
+                  <th>Tên hàng hoá</th>
+                  <th>Đơn vị tính</th>
+                  <th>Số lượng</th>
+                  <th>Đơn giá</th>
+                  <th>Thành tiền</th>
+                  <th>Thuế suất</th>
+                  <th>Tiền thuế</th>
+                  <th>Tổng cộng</th>
+                  <th>Ghi chú</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+                <tr className="filter-row">
+                  <th className="sort-column">⇅</th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                  <th><div className="filter-cell">&lt;/&gt;</div></th>
+                </tr>
+              </thead>
+              <tbody>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((rowNum) => (
+                  <tr key={rowNum}>
+                    <td className="row-number">
+                      <input type="checkbox" />
+                      <span className="number">{rowNum}</span>
+                    </td>
+                    <td>01/01/2024</td>
+                    <td>01GTKT</td>
+                    <td>AB/24E</td>
+                    <td>0001234</td>
+                    <td>0123456789</td>
+                    <td>CÔNG TY TNHH ABC</td>
+                    <td>VT001</td>
+                    <td>Vật tư A</td>
+                    <td>Cái</td>
+                    <td>100</td>
+                    <td>1,000,000</td>
+                    <td>100,000,000</td>
+                    <td>10%</td>
+                    <td>10,000,000</td>
+                    <td>110,000,000</td>
+                    <td>Ghi chú {rowNum}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <div className="table-progress-bar">
             <div className="progress"></div>
           </div>
         </div>
       </div>
 
-      {/* Footer actions */}
-      <div className="footer">
-        <div className="footer-actions">
-          <button className="btn-save">
-            <span className="save-icon">💾</span> Lưu
-          </button>
-          <button className="btn-process">
-            <span className="process-icon">⚙</span> Xử lý dữ liệu
-          </button>
-          <button className="btn-close">
-            <span className="close-icon">✖</span> Đóng
-          </button>
-        </div>
-      </div>
-
       {/* Login form overlay */}
       {showLoginForm && (
-        <div className="login-overlay">
-          <LoginForm onClose={handleCloseLoginForm} />
-        </div>
+        <LoginForm 
+          onLoginSuccess={handleLoginSuccess} 
+          onClose={handleCloseLoginForm}
+        />
       )}
 
-      {/* CSS style for overlay */}
-      <style jsx>{`
-        .login-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 1000;
-        }
-        
-        .close-login-btn {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          background: none;
-          border: none;
-          font-size: 20px;
-          cursor: pointer;
-        }
-      `}</style>
+      {/* Sync form overlay */}
+      {showSyncForm && (
+        <InvoiceSync onClose={handleCloseSyncForm} />
+      )}
     </div>
   );
 };
