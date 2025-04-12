@@ -750,3 +750,63 @@ justify-content: center;
 flex-shrink: 0;
 position: relative;
 }
+
+/* Add these styles to your home.css file */
+
+/* Container styles for in-page iframe */
+.invoice-interface-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: 1px solid var(--light-green, #99C8A0);
+  border-radius: 5px;
+  margin: 20px 0;
+  overflow: hidden;
+  background-color: #f0f4f1;
+}
+
+/* Modal styles for popup iframe */
+.invoice-interface-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;
+  background-color: #f0f4f1;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 1001;
+}
+
+/* Active tab styling */
+.active-tab {
+  background-color: rgba(34, 116, 71, 0.1);
+  border-left: 3px solid #227447;
+}
+
+/* Button highlight for "Lấy hoá đơn" when invoice interface is open */
+.controls .get-bill.active {
+  background-color: rgba(34, 116, 71, 0.2);
+  border: 1px solid #227447;
+}

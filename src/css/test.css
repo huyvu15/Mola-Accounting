@@ -1,0 +1,334 @@
+/* App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Roboto', 'Titillium Web', sans-serif;
+}
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: 97px;
+  background-color: #D2E6D6;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+  position: relative;
+}
+
+.search-container {
+  position: relative;
+  color: #777777;
+text-align: left;
+font-family: "TitilliumWeb-Regular", sans-serif;
+font-size: 14px;
+font-weight: 400;
+opacity: 0.5;
+position: absolute;
+left: 728px;
+top: 37px;
+padding: 8px;
+border: 1px solid #ddd;
+border-radius: 4px;
+width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  height: 100%;
+  background: #F2F2F2;
+  border-radius: 3px;
+  border: 1px solid #ACD2B2;
+  padding-left: 8px;
+  color: #777777;
+  opacity: 0.5;
+  font-size: 14px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
+}
+
+.search-input::placeholder {
+  color: #777777;
+  opacity: 0.5;
+}
+
+.search-icon {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  outline: 2px solid #777777;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 227px;
+  background-color: #E6F0E8;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* Main Button */
+.main-button {
+  width: 227px;
+  height: 56px;
+  background-color: #ACD2B2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  line-height: 16px;
+  padding: 16px 12px;
+}
+
+/* Menu Container with List and Scrollbar */
+.menu-container {
+  position: relative;
+  margin-top: 3px;
+}
+
+.menu-list {
+  width: 216px;
+  height: 251px;
+  margin-left: 6px;
+  background-color: white;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.menu-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.menu-item {
+  width: 204px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #D1D1D1;
+  padding: 0 1px;
+  margin-left: 1px;
+}
+
+.menu-icon {
+  width: 22px;
+  height: 22px;
+  background-color: #f0f0f0;
+  margin-right: 2px;
+}
+
+.menu-text {
+  width: 179px;
+  text-align: right;
+  color: #555555;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 15.4px;
+}
+
+/* Custom Scrollbar */
+.scrollbar {
+  position: absolute;
+  width: 12px;
+  height: 251px;
+  right: 0;
+  top: 0;
+  background-color: #E5E5E5;
+}
+
+.scrollbar-thumb {
+  position: absolute;
+  width: 6px;
+  height: 72px;
+  left: 3px;
+  top: 89px;
+  background-color: #707070;
+  border-radius: 6px;
+}
+
+/* Bottom Menu */
+.bottom-menu {
+  position: absolute;
+  bottom: 100px;
+  width: 217px;
+  left: 6px;
+}
+
+.dotted-line {
+  width: 216px;
+  height: 7px;
+  background-color: #A5D6A7;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+/* Row of dots */
+.dotted-line::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: black;
+  top: 3px;
+  left: 92px;
+  box-shadow: 
+    3px 0 0 0 black,
+    6px 0 0 0 black,
+    9px 0 0 0 black,
+    12px 0 0 0 black,
+    15px 0 0 0 black,
+    18px 0 0 0 black,
+    21px 0 0 0 black,
+    24px 0 0 0 black,
+    27px 0 0 0 black,
+    30px 0 0 0 black,
+    33px 0 0 0 black,
+    36px 0 0 0 black,
+    39px 0 0 0 black,
+    42px 0 0 0 black;
+}
+
+.menu-button {
+  height: 46px;
+  width: 217px;
+  display: flex;
+  align-items: center;
+  background-color: #BFDCC4;
+  margin-bottom: 1px;
+  position: relative;
+}
+
+.menu-button.active {
+  background-color: #FFE0B2;
+}
+
+.button-icon {
+  width: 40px;
+  height: 40px;
+  margin-left: 11px;
+  background-color: #f0f0f0;
+}
+
+.button-text {
+  margin-left: 8px;
+  color: black;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  height: 25px;
+  background-color: #D2E6D6;
+  display: flex;
+  align-items: center;
+  padding-left: 4px;
+  gap: 5px;
+}
+
+.breadcrumb span {
+  color: white;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 14px;
+  padding: 0 5px;
+}
+
+.breadcrumb span:nth-child(odd):not(:nth-child(1)) {
+  font-weight: 400;
+}
+
+.main-content {
+  flex: 1;
+  background-color: white;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  height: 33px;
+  background-color: rgba(210, 230, 214, 0.78);
+}
+
+/* Green Borders */
+.main-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: 0;
+  left: 0;
+  background-color: #D2E6D6;
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+  
+  .main-button {
+    width: 180px;
+  }
+  
+  .menu-list {
+    width: 170px;
+  }
+  
+  .menu-item {
+    width: 160px;
+  }
+  
+  .bottom-menu {
+    width: 170px;
+  }
+  
+  .dotted-line {
+    width: 170px;
+  }
+  
+  .menu-button {
+    width: 170px;
+  }
+}

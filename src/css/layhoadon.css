@@ -1,0 +1,271 @@
+/* InvoiceDataInterface.css */
+:root {
+  --primary-green: #227447;
+  --light-green: #99C8A0;
+  --border-light: rgba(0, 0, 0, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.invoice-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f4f1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+.header-nav {
+  background-color: var(--primary-green);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 34px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.nav-item {
+  padding: 0 5px;
+  font-weight: 500;
+}
+
+.separator {
+  font-weight: 400;
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green-line {
+  height: 3px;
+  background-color: var(--primary-green);
+  width: 100%;
+}
+
+/* Main content styles */
+.main-content {
+  padding: 0 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-section {
+  text-align: center;
+  padding: 7px 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.title-section h2 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  color: black;
+}
+
+/* Top controls row - all elements in one line */
+.top-controls-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.branch-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.branch-icon {
+  font-size: 20px;
+  color: #f0b942;
+}
+
+.branch-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.company-selector {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.dropdown-icon {
+  font-size: 10px;
+  color: #666;
+}
+
+.control-btn.choose-file,
+.control-btn.add-file,
+.control-btn.sync-data {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background-color: white;
+  border: 0.5px solid var(--light-green);
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn.choose-file {
+  background-color: #337ab7;
+  color: white;
+}
+
+.control-btn.add-file {
+  background-color: #eee;
+  color: #333;
+}
+
+.control-btn.sync-data {
+  background-color: #5cb85c;
+  color: white;
+  padding: 6px 15px;
+}
+
+.file-icon, .sync-icon {
+  font-size: 16px;
+}
+
+.filter-dropdown-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.filter-dropdown-container span {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.filter-dropdown {
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  min-width: 180px;
+}
+
+/* Table styles */
+.table-container {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-table th, .invoice-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.invoice-table th {
+  background-color: #f2f2f2;
+  font-weight: 500;
+}
+
+.invoice-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Footer styles */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 10px;
+  gap: 10px;
+  background-color: #f0f4f1;
+}
+
+.footer-spacer {
+  flex-grow: 1;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.setup-btn, .save-btn, .process-btn, .close-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 18.2px;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.setup-btn {
+  border: none;
+}
+
+.save-btn {
+  border: 0.5px solid var(--light-green);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+}
+
+.process-btn {
+  border: 0.5px solid var(--light-green);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+  border: 0.5px solid var(--light-green);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+}

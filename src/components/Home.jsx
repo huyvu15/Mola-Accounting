@@ -65,8 +65,8 @@ const Homes = () => {
   }, []);
 
   const transactionTable = useMemo(() => (
-    <div className="table-scroll-container" style={{ width: '100%', overflowX: 'auto' }}>
-      <div className="frame-t-1" style={{ minWidth: '1200px' }}> {/* Adjusted minimum width to ensure horizontal scrolling */}
+    <div className="table-scroll-container"  >
+      <div className="frame-t-1"  > {/* Adjusted minimum width to ensure horizontal scrolling */}
         <div className="t-12">
           {TRANSACTION_HEADERS.map((item, index) => (
             <div key={index} className={item.className || 'table-cell3'}>
@@ -99,8 +99,8 @@ const Homes = () => {
   ), [transactions]);
 
   const inventoryTable = useMemo(() => (
-    <div className="table-scroll-container" style={{ width: '100%', overflowX: 'auto' }}>
-      <div className="frame-t-2" style={{ minWidth: '1200px' }}> {/* Adjusted minimum width to ensure horizontal scrolling */}
+    <div className="table-scroll-container"  >
+      <div className="frame-t-2"  > {/* Adjusted minimum width to ensure horizontal scrolling */}
         <div className="t-19">
           {INVENTORY_HEADERS.map((text, index) => (
             <div 
@@ -138,19 +138,6 @@ const Homes = () => {
       {/* Header Section */}
       <div className="rectangle-32" />
       
-      {/* Main Title */}
-      <div className="table-cell">
-        <div className="content">
-          <div className="text">Xử lý tự động chứng từ mua hàng</div>
-        </div>
-      </div>
-
-      {/* Transaction Table - Now with Horizontal Scrolling Only */}
-      {transactionTable}
-
-      {/* Inventory Table - Now with Horizontal Scrolling Only */}
-      {inventoryTable}
-
       {/* Search Input */}
       <input
         type="text"
@@ -204,6 +191,47 @@ const Homes = () => {
           </div>
         ))}
       </div>
+
+      
+
+      {/* Chỗ ném iframe */}
+
+      {/* Breadcrumb */}
+      <div className="breadcrumb-box">
+        <div className="top-details">
+          <div className="account">
+            <div className="tongquan">Tổng quan</div>
+          </div>
+          <div className="div">
+            <div className="div2">/</div>
+          </div>
+          <div className="david">
+            <div className="tongquan">{sidebar.title}</div>
+          </div>
+          <div className="div">
+            <div className="div2">/</div>
+          </div>
+          <div className="new-card">
+            <div className="tongquan">
+              Xử lý tự động chứng từ mua hàng
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="table-cell">
+        <div className="content">
+          <div className="text">Xử lý tự động chứng từ mua hàng</div>
+        </div>
+      </div>
+
+      {/* Transaction Table - Now with Horizontal Scrolling Only */}
+      {transactionTable}
+
+      {/* Inventory Table - Now with Horizontal Scrolling Only */}
+      {inventoryTable}
+
+      
 
       {/* Control Buttons */}
       <div className="controls">
@@ -263,29 +291,9 @@ const Homes = () => {
       </div>
       <div className="chi-nh-nh">Chi nhánh</div>
       <Building className="building-perspective-matte" />
+    
+    {/* Chỗ ném iframe */}
 
-      {/* Breadcrumb */}
-      <div className="breadcrumb-box">
-        <div className="top-details">
-          <div className="account">
-            <div className="tongquan">Tổng quan</div>
-          </div>
-          <div className="div">
-            <div className="div2">/</div>
-          </div>
-          <div className="david">
-            <div className="tongquan">{sidebar.title}</div>
-          </div>
-          <div className="div">
-            <div className="div2">/</div>
-          </div>
-          <div className="new-card">
-            <div className="tongquan">
-              Xử lý tự động chứng từ mua hàng
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

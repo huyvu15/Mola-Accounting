@@ -61,7 +61,7 @@ const Sync_TCT = ({ onClose }) => {
       });
 
       const data = await response.json();
-
+      console.log(data);
       if (data.success) {
         // Create a file input element
         const fileInput = document.createElement('input');
