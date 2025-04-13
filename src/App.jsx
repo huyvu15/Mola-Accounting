@@ -1,5 +1,5 @@
 import React from 'react';
-// import Homes from './components/Home';
+import Homes from './components/Home';
 // import './index.css';
 // import LoginForm from './components/login_HDDT';
 // import InvoiceSync from './components/Sync_TCT';
@@ -11,13 +11,13 @@ import Login from './components/login';
 
 function App() {
   // return <PurchasePage />; // Render the main component
-  return <Login />;
+  // return <Login />;
   // return <PurchasingUIExact />;
   // return <Layhoadon />;
-  // return <Homes />;
+  return <Homes />;
   // return <LoginForm />;
   // return <InvoiceSync />;
-  return <Get_invoice />;
+  // return <Get_invoice />;
   // return <PurchasePage />;
 }
 

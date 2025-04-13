@@ -26,21 +26,75 @@ button:hover {
 box-sizing: border-box;
 }
 .m-n-2 {
-background: #E6F0E8; /* Màu nền chính */
-height: 1024px;
-position: relative;
-display: flex; /* Sử dụng flex để bố trí sidebar và nội dung */
+  background: #E6F0E8;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+.search-container {
+  position: relative;
+  width: 300px;
+  margin-left: auto;
+}
+
+.box-find {
+  width: 100%;
+  height: 36px;
+  padding: 8px 40px 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  width: 16px;
+  height: 16px;
 }
 
 .sidebar {
-width: 228px; /* Chiều rộng sidebar */
-background: #D2E6D6; /* Màu nền sidebar */
-position: fixed; /* Cố định bên trái */
-top: 0;
-left: 0;
-height: 100%;
-padding-top: 20px;
+  width: 228px;
+  background: #D2E6D6;
+  position: fixed;
+  top: 60px; /* Start below topbar */
+  left: 0;
+  height: calc(100vh - 60px); /* Subtract topbar height */
+  z-index: 99;
 }
+
+.main-content {
+  flex: 1;
+  margin-left: 228px;
+  margin-top: 116px;
+  padding: 20px;
+  position: relative;
+  background: #E6F0E8;
+  width: calc(100vw - 228px);
+  min-width: calc(100vw - 228px);
+  overflow-x: hidden;
+}
+
 .rectangle-32 {
 width: 56px;
 height: 1213px;
@@ -312,31 +366,6 @@ flex-shrink: 0;
 width: 150px;
 position: relative;
 overflow: hidden;
-}
-.box-find {
-color: #777777;
-text-align: left;
-font-family: "TitilliumWeb-Regular", sans-serif;
-font-size: 14px;
-font-weight: 400;
-opacity: 0.5;
-position: absolute;
-left: 728px;
-top: 37px;
-padding: 8px;
-border: 1px solid #ddd;
-border-radius: 4px;
-width: 300px;
-}
-.icon {
-width: 1.04%;
-height: 1.46%;
-position: absolute;
-right: 32.01%;
-left: 66.94%;
-bottom: 94.53%;
-top: 4%;
-overflow: visible;
 }
 .button {
 background: #acd2b2;
@@ -705,18 +734,27 @@ top: 216px;
 object-fit: cover;
 }
 .breadcrumb-box {
-width: 1263px; /* Chiều rộng tùy chỉnh, bạn có thể thay đổi */
-height: 56px;
-background: #227447; /* Nền trắng */
-padding: 8px 12px; /* Khoảng cách bên trong */
-position: absolute;
-left: 227px; /* Đặt ngay bên phải của sidebar (sidebar rộng 228px) */
-top: 97px; /* Cùng tọa độ top với .table-cell7 (nút "Mua Hàng") */
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ để nổi bật */
-display: flex;
-justify-content: center;
-justify-content: flex-start; /* Căn trái theo chiều ngang */
-padding-left: 12px; /* Tạo khoảng cách bên trái nếu cần */
+  position: fixed;
+  left: 228px;
+  top: 60px;
+  right: 0;
+  height: 56px;
+  background: #227447;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 98;
+}
+
+.breadcrumb-box a {
+  color: #D2E6D6;
+  text-decoration: none;
+}
+
+.breadcrumb-box span {
+  color: #fff;
+  margin: 0 8px;
 }
 
 .top-details {
@@ -809,4 +847,202 @@ position: relative;
 .controls .get-bill.active {
   background-color: rgba(34, 116, 71, 0.2);
   border: 1px solid #227447;
+}
+
+.table-cell7.active,
+.table-cell8.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content-container {
+  padding: 20px;
+  width: calc(100vw - 228px); /* Match main-content width */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-left: 0; /* Remove negative margin */
+}
+
+/* Header section with buttons */
+.header-buttons {
+  display: flex;
+  gap: 4px;
+  padding: 8px 20px;
+  background: transparent;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.header-buttons button {
+  background: #acd2b2;
+  border: 1px solid #99c8a0;
+  border-radius: 3px;
+  padding: 6px 12px;
+  color: #000;
+  font-size: 14px;
+  cursor: pointer;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.header-buttons .save-btn,
+.header-buttons .delete-btn {
+  background: #fff;
+  border: 0.5px solid #99c8a0;
+  box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.1);
+  width: 80px;
+}
+
+/* Company selector */
+.company-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.company-selector select {
+  padding: 6px 12px;
+  border: 1px solid #99c8a0;
+  border-radius: 3px;
+  background: #fff;
+  min-width: 200px;
+  height: 32px;
+}
+
+/* Tables */
+.table-section {
+  margin-bottom: 24px;
+  background: #fff;
+  border-radius: 4px;
+  width: 100%; /* Use 100% of container */
+  min-width: 100%;
+}
+
+.table-section h3 {
+  padding: 12px 20px; /* Increase left padding to match container */
+  margin: 0;
+  background: #227447;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.table-content {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-content th,
+.table-content td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 32px;
+}
+
+.table-content th {
+  background: #99c8a0;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 20px; /* Match container padding */
+}
+
+.table-content td {
+  background: #fff;
+  padding-left: 20px; /* Match container padding */
+}
+
+/* Specific column widths for first table */
+.table-content.transaction-table th:first-child,
+.table-content.transaction-table td:first-child {
+  width: 40px;
+}
+
+.table-content.transaction-table th,
+.table-content.transaction-table td {
+  width: calc((100% - 40px) / 8); /* Divide remaining space by number of columns minus checkbox */
+}
+
+/* Specific column widths for second table */
+.table-content.details-table th:first-child,
+.table-content.details-table td:first-child {
+  width: 40px;
+}
+
+.table-content.details-table th,
+.table-content.details-table td {
+  width: calc((100% - 40px) / 8); /* Divide remaining space by number of columns minus checkbox */
+}
+
+.checkbox-column {
+  width: 40px;
+  text-align: center;
+}
+
+.checkbox-column input[type="checkbox"] {
+  margin: 0;
+}
+
+/* Bottom actions */
+.bottom-actions {
+  padding: 0 20px;
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.bottom-actions button {
+  background: #acd2b2;
+  border: 1px solid #99c8a0;
+  border-radius: 3px;
+  padding: 6px 12px;
+  color: #000;
+  font-size: 14px;
+  height: 32px;
+  white-space: nowrap;
+}
+
+/* Sort icons */
+.sort-icon {
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  vertical-align: middle;
+  color: #666;
+}
+
+/* Breadcrumb styling */
+.breadcrumb-box {
+  position: fixed;
+  left: 228px;
+  top: 60px;
+  right: 0;
+  height: 56px;
+  background: #227447;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 98;
+}
+
+.breadcrumb-box a {
+  color: #D2E6D6;
+  text-decoration: none;
+}
+
+.breadcrumb-box span {
+  color: #fff;
+  margin: 0 8px;
 }
