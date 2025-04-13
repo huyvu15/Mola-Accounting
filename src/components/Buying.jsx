@@ -29,6 +29,10 @@ const Buying = () => {
 
       {/* Company Selector */}
       <div className="company-selector">
+        <div className="branch-label">
+          {/* <img src="/building-perspective-matte.png" alt="Branch" /> */}
+          <span>Chi nhánh</span>
+        </div>
         <select 
           value={selectedCompany}
           onChange={(e) => setSelectedCompany(e.target.value)}

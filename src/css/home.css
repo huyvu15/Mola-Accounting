@@ -857,11 +857,10 @@ position: relative;
 
 .content-container {
   padding: 20px;
-  width: calc(100vw - 228px); /* Match main-content width */
+  width: calc(100vw - 228px);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-left: 0; /* Remove negative margin */
 }
 
 /* Header section with buttons */
@@ -896,7 +895,7 @@ position: relative;
   width: 80px;
 }
 
-/* Company selector */
+/* Company selector row */
 .company-selector {
   display: flex;
   align-items: center;
@@ -906,6 +905,24 @@ position: relative;
   width: 100%;
 }
 
+.company-selector .branch-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.company-selector .branch-label img {
+  width: 24px;
+  height: 24px;
+}
+
+.company-selector .branch-label span {
+  color: rgba(0, 0, 0, 0.9);
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
 .company-selector select {
   padding: 6px 12px;
   border: 1px solid #99c8a0;
@@ -913,6 +930,16 @@ position: relative;
   background: #fff;
   min-width: 200px;
   height: 32px;
+  margin-left: 8px;
+}
+
+/* Remove old chi nhánh styles */
+.chi-nh-nh {
+  display: none;
+}
+
+.building-perspective-matte {
+  display: none;
 }
 
 /* Tables */
@@ -920,32 +947,35 @@ position: relative;
   margin-bottom: 24px;
   background: #fff;
   border-radius: 4px;
-  width: 100%; /* Use 100% of container */
-  min-width: 100%;
+  width: 100%;
+  overflow: auto;
 }
 
 .table-section h3 {
-  padding: 12px 20px; /* Increase left padding to match container */
+  padding: 8px 12px;
   margin: 0;
   background: #227447;
   color: #fff;
   font-size: 14px;
   font-weight: normal;
+  display: inline-block;
+  border-radius: 4px 4px 0 0;
+  min-width: 140px;
 }
 
 .table-content {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  border: 1px solid #ddd;
+  margin-top: -1px; /* To overlap with the header border */
 }
 
 .table-content th,
 .table-content td {
-  padding: 8px;
+  padding: 8px 16px;
   border: 1px solid #ddd;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   height: 32px;
 }
 
@@ -954,39 +984,119 @@ position: relative;
   font-weight: normal;
   font-size: 14px;
   text-align: left;
-  padding-left: 20px; /* Match container padding */
+  position: sticky;
+  top: 0;
 }
 
 .table-content td {
   background: #fff;
-  padding-left: 20px; /* Match container padding */
 }
 
-/* Specific column widths for first table */
-.table-content.transaction-table th:first-child,
-.table-content.transaction-table td:first-child {
-  width: 40px;
+/* Add a container for the header */
+.table-header {
+  background: #fff;
+  padding: 0;
+  border-bottom: 1px solid #ddd;
 }
 
-.table-content.transaction-table th,
-.table-content.transaction-table td {
-  width: calc((100% - 40px) / 8); /* Divide remaining space by number of columns minus checkbox */
+/* First table column widths */
+.table-content th:nth-child(1),
+.table-content td:nth-child(1) {
+  width: 40px; /* Checkbox column */
 }
 
-/* Specific column widths for second table */
-.table-content.details-table th:first-child,
-.table-content.details-table td:first-child {
-  width: 40px;
+.table-content th:nth-child(2),
+.table-content td:nth-child(2) {
+  min-width: 150px; /* Loại giao dịch */
 }
 
-.table-content.details-table th,
-.table-content.details-table td {
-  width: calc((100% - 40px) / 8); /* Divide remaining space by number of columns minus checkbox */
+.table-content th:nth-child(3),
+.table-content td:nth-child(3) {
+  min-width: 150px; /* Phương thức TT */
+}
+
+.table-content th:nth-child(4),
+.table-content td:nth-child(4) {
+  min-width: 150px; /* STK ngân hàng */
+}
+
+.table-content th:nth-child(5),
+.table-content td:nth-child(5) {
+  min-width: 120px; /* Ngày hạch toán */
+}
+
+.table-content th:nth-child(6),
+.table-content td:nth-child(6) {
+  min-width: 120px; /* Ngày chứng từ */
+}
+
+.table-content th:nth-child(7),
+.table-content td:nth-child(7) {
+  min-width: 150px; /* Mã KH giao dịch */
+}
+
+.table-content th:nth-child(8),
+.table-content td:nth-child(8) {
+  min-width: 200px; /* Tên KH giao dịch */
+}
+
+.table-content th:nth-child(9),
+.table-content td:nth-child(9) {
+  min-width: 120px; /* Ngày hoá đơn */
+}
+
+/* Second table column widths */
+.table-content.details-table th:nth-child(1),
+.table-content.details-table td:nth-child(1) {
+  width: 40px; /* Checkbox */
+}
+
+.table-content.details-table th:nth-child(2),
+.table-content.details-table td:nth-child(2) {
+  min-width: 150px; /* Mã hàng */
+}
+
+.table-content.details-table th:nth-child(3),
+.table-content.details-table td:nth-child(3) {
+  min-width: 200px; /* Tên hàng */
+}
+
+.table-content.details-table th:nth-child(4),
+.table-content.details-table td:nth-child(4) {
+  min-width: 120px; /* Tính chất */
+}
+
+.table-content.details-table th:nth-child(5),
+.table-content.details-table td:nth-child(5) {
+  min-width: 120px; /* Mã kho */
+}
+
+.table-content.details-table th:nth-child(6),
+.table-content.details-table td:nth-child(6) {
+  min-width: 200px; /* Tên kho */
+}
+
+.table-content.details-table th:nth-child(7),
+.table-content.details-table td:nth-child(7) {
+  min-width: 100px; /* TK Nợ */
+}
+
+.table-content.details-table th:nth-child(8),
+.table-content.details-table td:nth-child(8) {
+  min-width: 100px; /* TK Có */
+}
+
+.table-content.details-table th:nth-child(9),
+.table-content.details-table td:nth-child(9) {
+  min-width: 100px; /* Đơn vị tính */
 }
 
 .checkbox-column {
   width: 40px;
   text-align: center;
+  position: sticky;
+  left: 0;
+  z-index: 1;
 }
 
 .checkbox-column input[type="checkbox"] {
