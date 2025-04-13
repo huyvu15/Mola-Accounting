@@ -3,10 +3,12 @@ import '../css/login.css';
 // import googleIcon from './assets/google-icon.svg';
 import bgImage from '../assets/bg.png';
 import illustrationImage from '../assets/bg1.png';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
   // States to control which screen is shown
+  const navigate = useNavigate();
   const [currentScreen, setCurrentScreen] = useState('home'); // 'home', 'login', 'register', 'forgotPassword', 'verifyEmail', 'resetPassword'
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -37,6 +39,12 @@ const Login = () => {
   const navigateToForgotPassword = () => setCurrentScreen('forgotPassword');
   const navigateToVerifyEmail = () => setCurrentScreen('verifyEmail');
   const navigateToResetPassword = () => setCurrentScreen('resetPassword');
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate('/'); // hoặc '/home' nếu bạn định tuyến như vậy
+  };
+  
+
 
   return (
     <div className="auth-container">
@@ -74,7 +82,7 @@ const Login = () => {
                 <a href="#" className="register-link" onClick={(e) => { e.preventDefault(); navigateToRegister(); }}>Đăng Ký</a>
               </div>
 
-              <form className="auth-form">
+              <form className="auth-form" onSubmit={handleLogin}>
                 <div className="form-group">
                   <input type="text" id="username" className="form-input" placeholder=" " />
                   <label htmlFor="username" className="form-label">Tên đăng nhập</label>
@@ -148,7 +156,7 @@ const Login = () => {
                 <a href="#" className="login-link" onClick={(e) => { e.preventDefault(); navigateToLogin(); }}>Đăng Nhập</a>
               </div>
 
-              <form className="auth-form">
+              <form className="auth-form" onSubmit={handleLogin}>
                 <div className="form-group">
                   <input type="text" id="reg-username" className="form-input" placeholder=" " />
                   <label htmlFor="reg-username" className="form-label">Tên đăng nhập</label>
@@ -241,7 +249,7 @@ const Login = () => {
                 Đừng lo lắng! Chỉ cần nhập email của bạn và chúng tôi sẽ gửi cho bạn liên kết để đặt lại mật khẩu.
               </p>
 
-              <form className="auth-form">
+              <form className="auth-form" onSubmit={handleLogin}>
                 <div className="form-group">
                   <input type="email" id="reset-email" className="form-input" placeholder=" " />
                   <label htmlFor="reset-email" className="form-label">Email</label>
@@ -282,7 +290,7 @@ const Login = () => {
                 Vui lòng nhập mã 6 chữ số đã được gửi đến địa chỉ email của bạn
               </p>
 
-              <form className="auth-form">
+              <form className="auth-form" onSubmit={handleLogin}>
                 <div className="verification-code-container">
                   {verificationCode.map((digit, index) => (
                     <input
@@ -326,7 +334,7 @@ const Login = () => {
                 Vui lòng tạo mật khẩu mới
               </p>
 
-              <form className="auth-form">
+              <form className="auth-form" onSubmit={handleLogin}>
                 <div className="form-group">
                   <input 
                     type={showPassword ? "text" : "password"} 
