@@ -9,6 +9,7 @@ import data from '../data.json';
 import Selling from './Selling';
 import Buying from './Buying';
 
+
 const Homes = () => {
   const { sidebar, transactions } = data;
   const [activeTab, setActiveTab] = useState(0);
