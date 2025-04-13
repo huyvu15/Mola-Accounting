@@ -77,10 +77,10 @@ box-sizing: border-box;
   width: 228px;
   background: #D2E6D6;
   position: fixed;
-  top: 60px; /* Start below topbar */
+  top: -37px; /* Start below topbar */
   left: 0;
-  height: calc(100vh - 60px); /* Subtract topbar height */
-  z-index: 99;
+  height: calc(100vh - -30px); /* Subtract topbar height */
+  z-index: 199;
 }
 
 .main-content {
@@ -116,7 +116,7 @@ width: 310px;
 height: 47px;
 position: absolute;
 left: 231px;
-top: 156px;
+top: 56px;
 }
 .content {
 padding: 7px 8px 7px 8px;
@@ -1105,7 +1105,7 @@ position: relative;
 
 /* Bottom actions */
 .bottom-actions {
-  padding: 0 20px;
+  padding: 0 600px;
   width: 100%;
   margin-top: 16px;
   display: flex;

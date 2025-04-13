@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Homes from './components/Home';
-// import Login from './components/login';
+import Login from './components/login';
 // import PurchasePage from './components/main';
 // import LoginForm from './components/login_HDDT';
 // import InvoiceSync from './components/Sync_TCT';
@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Homes />} />
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/purchase" element={<PurchasePage />} />
         <Route path="/login-hddt" element={<LoginForm />} />
         <Route path="/sync" element={<InvoiceSync />} />
