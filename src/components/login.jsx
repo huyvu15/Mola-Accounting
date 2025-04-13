@@ -206,7 +206,7 @@ const Login = () => {
                       checked={isTermsChecked}
                       onChange={() => setIsTermsChecked(!isTermsChecked)}
                     />
-                    <span className="checkmark"></span>
+                    {/* <span className="checkmark"></span> */}
                     <span className="terms-text">
                       By clicking Create account, I agree that I have read and accepted the Terms of Use and Privacy Policy.
                     </span>
