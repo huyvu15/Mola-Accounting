@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../css/LoginForm.css';
-import Get_invoice from './get_invoice';
-
-
+import InvoiceSync from './Sync_TCT';
 
 const API_BASE_URL = 'http://localhost:5000';
 
-const LoginForm = ({ onLoginSuccess, onClose }) => {
+const LoginForm = ({ onClose }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [captcha, setCaptcha] = useState('');
@@ -16,10 +14,16 @@ const LoginForm = ({ onLoginSuccess, onClose }) => {
   const [isChecked, setIsChecked] = useState(true);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [showGetInvoice, setShowGetInvoice] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    fetchCaptcha();
+    // Kiểm tra trạng thái đăng nhập
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      fetchCaptcha();
+    }
   }, []);
 
   const fetchCaptcha = async () => {
@@ -35,13 +39,11 @@ const LoginForm = ({ onLoginSuccess, onClose }) => {
       });
       const data = await response.json();
       setCaptchaKey(data.key);
-      // Replace SVG content characters directly
       const svgString = data.content
         .replace(/\\u003c/g, "<")
         .replace(/\\u003e/g, ">")
         .replace(/\\"/g, '"');
       setCaptchaContent(svgString);
-      // console.log(svgString);
     } catch (err) {
       setError('Không thể tải captcha. Vui lòng thử lại.');
     }
@@ -74,12 +76,11 @@ const LoginForm = ({ onLoginSuccess, onClose }) => {
       const data = await response.json();
 
       if (data.success) {
-        if (onLoginSuccess) {
-          onLoginSuccess(data.token);
-        }
+        localStorage.setItem('token', data.token);
+        setIsLoggedIn(true);
       } else {
         setError(data.message || 'Đăng nhập thất bại');
-        fetchCaptcha(); // Refresh captcha on failure
+        fetchCaptcha();
       }
     } catch (err) {
       setError('Có lỗi xảy ra khi đăng nhập');
@@ -89,20 +90,20 @@ const LoginForm = ({ onLoginSuccess, onClose }) => {
     }
   };
 
-  const handleClose = () => {
-    setShowGetInvoice(true);
-  };
-
-  if (showGetInvoice) {
-    return <Get_invoice />;
+  if (isLoggedIn) {
+    return <InvoiceSync onClose={onClose} />;
   }
 
   return (
     <div className="modal-overlay">
       <div className="login-modal">
         <div className="login-header">
-          <div className="header-title">Đăng Nhập HDDT</div>
-          <button className="close-button" onClick={handleClose}>×</button>
+          <div className="header-title">Đăng Nhập HĐĐT</div>
+          <button className="close-button" onClick={onClose}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 5L5 15M5 5L15 15" stroke="#9A9A9A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
         
         <div className="login-body">

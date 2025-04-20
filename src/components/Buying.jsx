@@ -4,17 +4,25 @@ import {
   Save,
   Trash2
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import '../css/home.css';
+import LoginForm from './login_HDDT';
 
 const Buying = () => {
   const [selectedCompany, setSelectedCompany] = useState('CÔNG TY TNHH DU LỊCH');
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLoginSuccess = () => {
+    setShowLoginForm(false);
+  };
 
   return (
     <div className="content-container">
       {/* Header Buttons */}
       <div className="header-buttons">
         <button>Thay đổi dữ liệu mặc định</button>
-        <button>Lấy hoá đơn</button>
+        <button onClick={() => setShowLoginForm(true)}>Lấy hoá đơn</button>
         <button>Xử lý dữ liệu</button>
         <button>Kiểm tra</button>
         <button className="save-btn">
@@ -179,6 +187,14 @@ const Buying = () => {
         <button>Gộp mặt hàng</button>
         <button>Lấy lại dữ liệu gốc</button>
       </div>
+
+      {/* Login Form Modal */}
+      {showLoginForm && (
+        <LoginForm 
+          onLoginSuccess={handleLoginSuccess}
+          onClose={() => setShowLoginForm(false)}
+        />
+      )}
     </div>
   );
 };
