@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Homes from './components/Home';
 import Login from './components/login';
-// import PurchasePage from './components/main';
-// import LoginForm from './components/login_HDDT';
-// import InvoiceSync from './components/Sync_TCT';
-// import GetInvoice from './components/get_invoice';
-// import Layhoadon from './components/layhoadon';
+import PurchasePage from './components/main';
+import LoginForm from './components/login_HDDT';
+import InvoiceSync from './components/Sync_TCT';
+import GetInvoice from './components/get_invoice';
+import Layhoadon from './components/layhoadon';
 
 function App() {
   return (
@@ -15,11 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Homes />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/purchase" element={<PurchasePage />} />
+        <Route path="/purchase" element={<PurchasePage />} />
         <Route path="/login-hddt" element={<LoginForm />} />
         <Route path="/sync" element={<InvoiceSync />} />
         <Route path="/get-invoice" element={<GetInvoice />} />
-        <Route path="/layhoadon" element={<Layhoadon />} /> */}
+        <Route path="/layhoadon" element={<Layhoadon />} />
       </Routes>
     </Router>
   );

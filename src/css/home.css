@@ -105,19 +105,20 @@ transform: translate(0px, -56px);
 overflow: visible;
 }
 .table-cell {
-background: #d2e6d6;
-border-radius: 4px;
-display: flex;
-flex-direction: column;
-gap: 0px;
-align-items: flex-start;
-justify-content: flex-start;
-width: 310px;
-height: 47px;
-position: absolute;
-left: 231px;
-top: 56px;
+  background: #d2e6d6;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start; /* căn trái nội dung */
+  justify-content: flex-start;
+  width: 300px;
+  height: 40px;
+  position: absolute;
+  left: 0px; /* căn trái khối này trong phần tử cha */
+  top: 0px;
 }
+
 .content {
 padding: 7px 8px 7px 8px;
 display: flex;
@@ -135,16 +136,17 @@ overflow: hidden;
 color: #000000;
 text-align: center;
 font-family: "Inter-SemiBold", sans-serif;
-font-size: 16px;
+font-size: 15px;
 line-height: 100%;
 font-weight: 600;
 position: relative;
 align-self: stretch;
-height: 33px;
+height: 43px;
 display: flex;
 align-items: center;
 justify-content: center;
 }
+
 .frame-t-1 {
 width: 1213px;
 height: 210px;
@@ -630,7 +632,7 @@ left: 1141px;
 top: 165px;
 }
 .text7 {
-color: #d1d1d1;
+color: #7b6262;
 text-align: center;
 font-family: var(--desktop-body-3-font-family, "Inter-Medium", sans-serif);
 font-size: var(--desktop-body-3-font-size, 14px);
@@ -871,6 +873,7 @@ position: relative;
   background: transparent;
   border-radius: 4px;
   width: 100%;
+  justify-content: flex-end; /* Align buttons to the right */
 }
 
 .header-buttons button {
@@ -947,7 +950,7 @@ position: relative;
   margin-bottom: 24px;
   background: #fff;
   border-radius: 4px;
-  width: 100%;
+  width: 105%;
   overflow: auto;
 }
 
@@ -1105,12 +1108,14 @@ position: relative;
 
 /* Bottom actions */
 .bottom-actions {
-  padding: 0 600px;
   width: 100%;
   margin-top: 16px;
   display: flex;
+  justify-content: flex-end; /* 👈 Căn phải */
   gap: 8px;
+  padding: 0 16px; /* 👈 Padding hợp lý hơn */
 }
+
 
 .bottom-actions button {
   background: #acd2b2;

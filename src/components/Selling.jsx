@@ -11,6 +11,9 @@ const Selling = () => {
 
   return (
     <div className="content-container">
+      <div className="table-cell">
+           <div className="text">Xử lý tự động chứng từ bán hàng</div>
+       </div>
       {/* Header Buttons */}
       <div className="header-buttons">
         <button>Thay đổi dữ liệu mặc định</button>

@@ -27,9 +27,9 @@ const Buying = () => {
         </button>
       </div>
 
-      {/* <div className="table-cell">
+      <div className="table-cell">
            <div className="text">Xử lý tự động chứng từ mua hàng</div>
-       </div> */}
+       </div>
 
 
       {/* Company Selector */}

@@ -302,33 +302,6 @@
     color: #484848;
     line-height: 16px;
   }
-  
-  /* .checkmark {
-    display: inline-block;
-    width: 20px;
-    height: 16px;
-    border: 1px solid #E8E8E8;
-    border-radius: 3px;
-    position: relative;
-  }
-  
-  .checkbox-container input:checked + .checkmark {
-    background: #227447;
-    border-color: #227447;
-  }
-  
-  .checkbox-container input:checked + .checkmark::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  } */
-  
   .forgot-password-desc {
     font-size: 14px;
     color: #484848;
