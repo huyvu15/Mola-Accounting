@@ -15,6 +15,7 @@ const Buying = () => {
 
   const handleLoginSuccess = () => {
     setShowLoginForm(false);
+    navigate('/sync');
   };
 
   return (

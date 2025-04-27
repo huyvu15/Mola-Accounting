@@ -1,29 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import '../css/LoginForm.css';
-import InvoiceSync from './Sync_TCT';
 
 const API_BASE_URL = 'http://localhost:5000';
 
-const LoginForm = ({ onClose }) => {
+const LoginForm = ({ onClose, onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [captcha, setCaptcha] = useState('');
   const [captchaKey, setCaptchaKey] = useState('');
   const [captchaContent, setCaptchaContent] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [isChecked, setIsChecked] = useState(true);
-  const [error, setError] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    // Kiểm tra trạng thái đăng nhập
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsLoggedIn(true);
-    } else {
-      fetchCaptcha();
-    }
+    fetchCaptcha();
   }, []);
 
   const fetchCaptcha = async () => {
@@ -76,8 +67,12 @@ const LoginForm = ({ onClose }) => {
       const data = await response.json();
 
       if (data.success) {
-        localStorage.setItem('token', data.token);
-        setIsLoggedIn(true);
+        if (onLoginSuccess) {
+          onLoginSuccess(data);
+        }
+        if (onClose) {
+          onClose();
+        }
       } else {
         setError(data.message || 'Đăng nhập thất bại');
         fetchCaptcha();
@@ -89,10 +84,6 @@ const LoginForm = ({ onClose }) => {
       setIsLoading(false);
     }
   };
-
-  if (isLoggedIn) {
-    return <InvoiceSync onClose={onClose} />;
-  }
 
   return (
     <div className="modal-overlay">
@@ -111,8 +102,8 @@ const LoginForm = ({ onClose }) => {
             <div className="form-row">
               <label>Tên đăng nhập</label>
               <div className="input-container">
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   placeholder="MST Doanh Nghiệp"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -124,26 +115,13 @@ const LoginForm = ({ onClose }) => {
             <div className="form-row">
               <label>Mật khẩu</label>
               <div className="input-container">
-                <input 
-                  type={showPassword ? "text" : "password"}
+                <input
+                  type="password"
                   placeholder="••••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <button 
-                  type="button" 
-                  className="toggle-password"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {showPassword ? (
-                      <path d="M11 4C4 4 1 11 1 11C1 11 4 18 11 18C18 18 21 11 21 11C21 11 18 4 11 4Z M11 14C12.6569 14 14 12.6569 14 11C14 9.34315 12.6569 8 11 8C9.34315 8 8 9.34315 8 11C8 12.6569 9.34315 14 11 14Z" stroke="#9A9A9A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    ) : (
-                      <path d="M11 4C4 4 1 11 1 11C1 11 4 18 11 18C18 18 21 11 21 11C21 11 18 4 11 4Z M11 14C12.6569 14 14 12.6569 14 11C14 9.34315 12.6569 8 11 8C9.34315 8 8 9.34315 8 11C8 12.6569 9.34315 14 11 14Z M3 3L19 19" stroke="#9A9A9A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    )}
-                  </svg>
-                </button>
               </div>
             </div>
             
@@ -155,7 +133,7 @@ const LoginForm = ({ onClose }) => {
                     <div className="captcha-svg" dangerouslySetInnerHTML={{ __html: captchaContent }} />
                   )}
                 </div>
-                <input 
+                <input
                   type="text"
                   placeholder="Nhập mã capcha"
                   value={captcha}
@@ -172,8 +150,8 @@ const LoginForm = ({ onClose }) => {
             
             <div className="checkbox-row">
               <label className="checkbox-container">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   checked={isChecked}
                   onChange={() => setIsChecked(!isChecked)}
                 />

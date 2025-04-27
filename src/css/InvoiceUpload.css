@@ -1,0 +1,148 @@
+/* Styles for InvoiceUpload component based on Figma node 258:4296 */
+
+.invoice-upload-container {
+  padding: 20px;
+  background-color: #f8f9fa; /* Assuming a light background */
+  font-family: sans-serif; /* Basic font */
+}
+
+.breadcrumbs {
+  margin-bottom: 15px;
+  color: #6c757d; /* Greyish color for breadcrumbs */
+}
+
+.breadcrumbs span {
+  margin-right: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6; /* Light border */
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #343a40; /* Darker heading color */
+}
+
+.header-icons {
+  display: flex;
+  gap: 10px;
+  /* Add styles for icons if using an icon library */
+}
+
+.actions-toolbar {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  padding: 8px 15px;
+  border: 1px solid #ced4da; /* Standard border */
+  border-radius: 4px;
+  background-color: #ffffff; /* White background */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.action-button:hover {
+  background-color: #e9ecef; /* Light grey on hover */
+}
+
+.sync-button {
+  /* Specific styles if needed */
+}
+
+.choose-file-button {
+  /* Specific styles if needed */
+}
+
+.add-file-button {
+  /* Specific styles if needed */
+}
+
+.settings-button {
+  /* Specific styles if needed */
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.company-dropdown span {
+  font-weight: bold;
+}
+
+.branch-dropdown {
+  /* Specific styles for branch dropdown */
+}
+
+.branch-dropdown label {
+  margin-right: 5px;
+  color: #495057;
+}
+
+.branch-dropdown .dropdown-input {
+  /* Style for the placeholder input area */
+  min-width: 150px; /* Example width */
+  height: 20px; /* Example height */
+  border: 1px dashed #ced4da; /* Dashed border for placeholder */
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.invoice-table-container {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  overflow-x: auto; /* Allow horizontal scrolling for table */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  font-size: 0.9rem;
+  white-space: nowrap; /* Prevent text wrapping in cells */
+}
+
+table th {
+  background-color: #f1f3f5; /* Light grey background for header */
+  font-weight: bold;
+}
+
+table input[type="checkbox"] {
+  cursor: pointer;
+}

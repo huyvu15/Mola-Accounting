@@ -40,6 +40,7 @@ const InvoiceSync = ({ onClose }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
+        
         body: JSON.stringify({
           type: parseInt(invoiceType),
           process_type: processType,
